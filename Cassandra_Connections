@@ -10,11 +10,12 @@ sc.stop
 
 //Set cassandra connection parameters
 val conf = new SparkConf(true).
-                 setMaster("local").
-				 setAppName("Cassandra_Spark").
-                 set("spark.cassandra.connection.host","csql.itversity.com")
-			 //  .set("spark.cassandra.auth.username", "username")
-             //  .set("spark.cassandra.auth.password", "password")
+  setMaster("local").
+  setAppName("Cassandra_Spark").
+  set("spark.cassandra.connection.host","csql.itversity.com")
+//  .set("spark.cassandra.auth.username", "username")
+//  .set("spark.cassandra.auth.password", "password")
+
 
 //Create spark context				  
 val sc = new SparkContext(conf)
@@ -42,8 +43,8 @@ import org.apache.spark.sql.SQLContext
 val sqlContext = new SQLContext(sc)
 
 val df = sqlContext.
-            read.
-			      format("org.apache.spark.sql.cassandra").
-			      options(Map("table"->"peers", "keyspace"->"system")).
-			      load()
+  read.
+  format("org.apache.spark.sql.cassandra").
+  options(Map("table"->"peers", "keyspace"->"system")).
+  load()
  df.show()
