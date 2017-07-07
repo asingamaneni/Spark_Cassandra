@@ -1,3 +1,8 @@
+//To acess cassndra sql in ITversity labs with out spark, below are the details
+Hostname: csql.itversity.com
+Port: 9042
+To launch "cqlsh", first set environment variable CQLSH_HOST - export CQLSH_HOST=csql.itversity.com
+
 //Connect to cassandra using spark shell 1.6.2, in ITversity Labs
 spark-shell --conf spark.ui.port=12345 --packages com.datastax.spark:spark-cassandra-connector_2.10:1.6.2
 
